@@ -1,0 +1,30 @@
+name: Send Tesla Price on WhatsApp
+
+on:
+  schedule:
+    - cron: '0 14 * * *'  # UTC 17:00 Israel Time
+  workflow_dispatch:      # Optional: run manually from GitHub UI
+
+jobs:
+  send-whatsapp:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run script
+        env:
+          TWILIO_SID: ${{ secrets.TWILIO_SID }}
+          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+          MY_WHATSAPP: ${{ secrets.MY_WHATSAPP }}
+        run: python send_tesla_price.py
