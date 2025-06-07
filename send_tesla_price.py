@@ -18,6 +18,10 @@ auth_token = os.getenv('TWILIO_AUTH_TOKEN')
 from_whatsapp = 'whatsapp:+14155238886'  # Twilio sandbox
 to_whatsapp = os.getenv('MY_WHATSAPP')   # Your verified number
 
+print("TWILIO_SID:", os.getenv("TWILIO_SID")[:6])  # Should print "ACxxxx"
+print("AUTH TOKEN set:", os.getenv("TWILIO_AUTH_TOKEN") is not None)
+print("TO WHATSAPP:", os.getenv("MY_WHATSAPP")[:6])
+
 # Send message via Twilio
 client = Client(account_sid, auth_token)
 message = client.messages.create(
