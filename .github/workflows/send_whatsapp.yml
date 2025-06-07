@@ -22,12 +22,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Debug ENV
-        env:
-          TWILIO_SID: ${{ secrets.TWILIO_SID }}
-        run: |
-          echo "TWILIO SID starts with: ${TWILIO_SID:0:6}"
-
       - name: Run script
         env:
           TWILIO_SID: ${{ secrets.TWILIO_SID }}
