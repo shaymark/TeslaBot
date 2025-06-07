@@ -25,10 +25,8 @@ jobs:
       - name: Debug ENV
         env:
           TWILIO_SID: ${{ secrets.TWILIO_SID }}
-          MY_WHATSAPP: ${{ secrets.MY_WHATSAPP }}
         run: |
           echo "TWILIO SID starts with: ${TWILIO_SID:0:6}"
-          echo "MY_WHATSAPP is: ${MY_WHATSAPP}"
 
       - name: Run script
         env:
