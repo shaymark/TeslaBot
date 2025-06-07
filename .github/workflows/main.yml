@@ -1,9 +1,9 @@
 name: Send Tesla Price on WhatsApp
 
-on:
-  schedule:
-    - cron: '0 14 * * *'  # UTC 17:00 Israel Time
-  workflow_dispatch:      # Optional: run manually from GitHub UI
+on: [push]
+  # schedule:
+  #   - cron: '0 14 * * *'  # UTC 17:00 Israel Time
+  # workflow_dispatch:      # Optional: run manually from GitHub UI
 
 jobs:
   send-whatsapp:
